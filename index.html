@@ -2197,7 +2197,10 @@ mark{border-radius:4px;padding:0 2px;background:rgba(93,141,255,.3);color:#fff}
         openDialog("searchDialog");
         return;
       }
-      if (event.key.toLowerCase() === "l" && DB) {
+      // O atalho "L" abre a conta. NÃO pode disparar enquanto o usuário
+      // digita num campo: "gmail.com" contém a letra L e reiniciaria a
+      // tela de login no meio do e-mail.
+      if (event.key.toLowerCase() === "l" && !typing && DB) {
         event.preventDefault();
         el.accountBtn.click();
         return;
