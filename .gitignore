@@ -1,0 +1,17 @@
+# Material interno do curso - NAO versionar
+*.docx
+memoria.md
+
+# Versoes antigas do site (o vigente e index.html)
+index - v1.html
+index -v2.html
+
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Segredos - a secret key do Supabase nunca entra no repo
+.env
+.env.*
+*.key
