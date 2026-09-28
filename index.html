@@ -197,6 +197,24 @@ mark{border-radius:4px;padding:0 2px;background:rgba(93,141,255,.3);color:#fff}
   .auth-alt{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);color:var(--text-3);font-size:13px;text-align:center}
   .auth-alt button{margin-top:11px;width:100%}
   .auth-social{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .dialog-wide{width:min(980px,100%)}
+  .instr-tabs{display:flex;gap:7px;margin:4px 0 18px;flex-wrap:wrap}
+  .instr-tabs button{border:1px solid var(--line);border-radius:999px;padding:7px 14px;background:var(--soft);color:var(--text-2);cursor:pointer;font-size:13px;transition:.15s var(--ease)}
+  .instr-tabs button.active{border-color:var(--accent,#4c6ef5);background:rgba(76,110,245,.14);color:#fff}
+  .instr-tabs button:hover{border-color:var(--line-2);background:var(--hover)}
+  .instr-table{width:100%;border-collapse:collapse;font-size:13.5px}
+  .instr-table th{color:var(--text-3);font-weight:600;text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+  .instr-table td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  .instr-table tr:hover td{background:rgba(255,255,255,.02)}
+  .instr-tag{display:inline-block;border:1px solid var(--line-2);border-radius:8px;padding:2px 8px;font-size:11.5px;color:var(--text-3)}
+  .instr-tag.instr{border-color:rgba(85,226,165,.4);color:#bdf3dc}
+  .instr-block{margin-bottom:16px;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .instr-block h4{margin:0 0 4px;font-size:14px}
+  .instr-block small{color:var(--text-3);font-size:12px}
+  .instr-note{white-space:pre-wrap;color:var(--text-2);font-size:13px;background:var(--soft);border-radius:9px;padding:9px 11px;margin-top:5px;max-height:130px;overflow:auto}
+  .instr-meter{display:flex;align-items:center;gap:8px;min-width:120px}
+  .instr-meter .bar{flex:1;height:6px;border-radius:999px;background:var(--line);overflow:hidden}
+  .instr-meter .bar i{display:block;height:100%;background:linear-gradient(90deg,#4c6ef5,#845ef7);border-radius:999px}
   .gate{position:fixed;inset:0;z-index:400;display:grid;place-items:center;overflow-y:auto;padding:clamp(16px,4vh,48px) clamp(14px,4vw,24px);background:radial-gradient(circle at 20% 8%,rgba(60,88,180,.32),transparent 34rem),radial-gradient(circle at 84% 92%,rgba(126,68,192,.2),transparent 32rem),linear-gradient(145deg,var(--deep),var(--bg))}
   .gate[hidden]{display:none}
   .gate-card{width:min(468px,100%);border:1px solid var(--line-2);border-radius:var(--r-2);padding:clamp(24px,3.4vw,36px);background:linear-gradient(150deg,rgba(21,27,45,.96),rgba(11,15,27,.97));box-shadow:0 40px 110px rgba(0,0,0,.6),inset 0 1px rgba(255,255,255,.08)}
@@ -238,6 +256,7 @@ mark{border-radius:4px;padding:0 2px;background:rgba(93,141,255,.3);color:#fff}
 <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9.5" rx="2.4"></rect><path d="M8.4 10.5V7.9a3.6 3.6 0 0 1 7.2 0v2.6"></path></symbol>
 <symbol id="i-out" viewBox="0 0 24 24"><path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4M10 8l-4 4 4 4M6 12h9"></path></symbol>
 <symbol id="i-save" viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5zM8 4v6h7V4M8 20v-6h8v6"></path></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"></rect><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"></rect><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"></rect><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"></rect></symbol>
 </svg>
 <a class="skip" href="#main">Pular para o conteúdo</a>
 <div class="ambient" aria-hidden="true"><span class="blob blob-a"></span><span class="blob blob-b"></span><span class="blob blob-c"></span></div>
@@ -1327,7 +1346,7 @@ mark{border-radius:4px;padding:0 2px;background:rgba(93,141,255,.3);color:#fff}
       <li><span class="kbd">Esc</span><p>Fechar a janela aberta ou limpar a busca.</p></li>
       <li><span class="kbd">Tab</span><p> Percorrer os itens com foco visível. Use o link <em>Pular para o conteúdo</em> no topo para ir direto ao conteúdo.</p></li>
     </ul>
-    <div class="callout note"><span class="ci"><svg class="icon"><use href="#i-info"></use></svg></span><div><strong>Privacidade e contas</strong><p>Para usar o material você entra com uma conta. Quizzes, checklists e anotações ficam gravados no banco do curso, vinculados só ao seu usuário, e voltam em qualquer dispositivo. Use uma senha exclusiva deste material.</p></div></div>
+    <div class="callout note"><span class="ci"><svg class="icon"><use href="#i-info"></use></svg></span><div><strong>Privacidade e contas</strong><p>Você entra com uma conta para usar o material. Quizzes, checklists e anotações ficam gravados no banco do curso, voltam em qualquer dispositivo e ficam visíveis ao instrutor para acompanhamento do seu desempenho. Use uma senha exclusiva deste material.</p></div></div>
   </div>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"><span class="status-dot"></span><span id="toastText"></span></div>
@@ -1335,6 +1354,17 @@ mark{border-radius:4px;padding:0 2px;background:rgba(93,141,255,.3);color:#fff}
     <div class="dialog">
       <div class="dialog-head"><div><span class="label">Conta</span><h2 id="authTitle">Sua conta</h2></div><button class="icon-btn" type="button" data-close aria-label="Fechar"><svg class="icon"><use href="#i-x"></use></svg></button></div>
       <div id="authContent"></div>
+    </div>
+  </div>
+  <div class="overlay" id="instructorDialog" role="dialog" aria-modal="true" aria-labelledby="instrTitle" hidden>
+    <div class="dialog dialog-wide">
+      <div class="dialog-head"><div><span class="label">Instrutor</span><h2 id="instrTitle">Painel do instrutor</h2></div><button class="icon-btn" type="button" data-close aria-label="Fechar"><svg class="icon"><use href="#i-x"></use></svg></button></div>
+      <div class="instr-tabs" id="instrTabs" hidden>
+        <button type="button" data-itab="alunos" class="active">Alunos</button>
+        <button type="button" data-itab="progresso">Progresso por aula</button>
+        <button type="button" data-itab="individual">Notas e respostas</button>
+      </div>
+      <div id="instrContent"></div>
     </div>
   </div>
   <div class="gate" id="authGate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
@@ -1571,6 +1601,8 @@ mark{border-radius:4px;padding:0 2px;background:rgba(93,141,255,.3);color:#fff}
     el.accountHint = document.getElementById("accountHint");
     el.authContent = document.getElementById("authContent");
     el.authTitle = document.getElementById("authTitle");
+    el.instrTabs = document.getElementById("instrTabs");
+    el.instrContent = document.getElementById("instrContent");
     el.gate = document.getElementById("authGate");
     el.gateContent = document.getElementById("gateContent");
     PANELS.forEach(function (key) {
@@ -2427,8 +2459,23 @@ mark{border-radius:4px;padding:0 2px;background:rgba(93,141,255,.3);color:#fff}
       '<button class="btn secondary" type="button" data-act="export"><svg class="icon"><use href="#i-save"></use></svg> Exportar dados</button>' +
       '<button class="btn secondary" type="button" data-act="password">Trocar senha</button>' +
       '</div>' +
+      '<div class="auth-instr" id="authInstrSlot"></div>' +
       '<div style="margin-top:10px"><button class="btn secondary" type="button" data-act="logout" style="width:100%"><svg class="icon"><use href="#i-out"></use></svg> Sair da conta</button></div>' +
       '<div class="sync-flag"><span class="status-dot"></span><span>Progresso sincronizado com o banco do curso.</span></div>';
+    DB.getMyProfile().then(function (prof) {
+      if (!prof || prof.role !== "instructor") return;
+      var slot = el.authContent.querySelector("#authInstrSlot");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "btn primary";
+      btn.style.cssText = "width:100%;margin-top:10px";
+      btn.innerHTML = '<svg class="icon"><use href="#i-grid"></use></svg> Painel do instrutor';
+      btn.addEventListener("click", function () {
+        closeDialogs();
+        openInstructorPanel();
+      });
+      slot.appendChild(btn);
+    }).catch(function () { /* conta sem perfil ainda; só ignore */ });
     var statChecks = el.authContent.querySelector("#statChecks");
     var statQuiz = el.authContent.querySelector("#statQuiz");
     var statNotes = el.authContent.querySelector("#statNotes");
@@ -2475,6 +2522,141 @@ mark{border-radius:4px;padding:0 2px;background:rgba(93,141,255,.3);color:#fff}
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
     toast("Arquivo de progresso gerado.");
+  }
+
+  // ===== PAINEL DO INSTRUTOR =====
+  var instrState = { dados: null, aba: "alunos" };
+
+  function openInstructorPanel() {
+    var user = DB && DB.getUser();
+    if (!user) { return; }
+    el.instrTabs.hidden = false;
+    el.instrContent.innerHTML = '<p class="lead" style="text-align:center;color:var(--text-2)">Carregando dados do curso…</p>';
+    openDialog("instructorDialog");
+    DB.getInstructorOverview().then(function (dados) {
+      instrState.dados = dados;
+      renderInstructorTab();
+    }).catch(function (err) {
+      el.instrContent.innerHTML = '<div class="callout alert" style="margin:0"><span class="ci"><svg class="icon"><use href="#i-alert"></use></svg></span><div><strong>Não foi possível carregar</strong><p>' + escapeHtml(friendly(err)) + '</p></div></div>';
+    });
+  }
+
+  function bindInstrTabs() {
+    el.instrTabs.addEventListener("click", function (ev) {
+      var btn = ev.target.closest("[data-itab]");
+      if (!btn) { return; }
+      instrState.aba = btn.getAttribute("data-itab");
+      Array.prototype.forEach.call(el.instrTabs.querySelectorAll("[data-itab]"), function (b) {
+        b.classList.toggle("active", b === btn);
+      });
+      if (instrState.dados) { renderInstructorTab(); }
+    });
+  }
+
+  function instrAluno(alunos, id) {
+    var a = (alunos || []).find(function (p) { return p.id === id; });
+    return a ? (a.full_name || a.email || "Aluno") : "—";
+  }
+
+  function instrTotais() {
+    var d = instrState.dados;
+    var contagem = {};
+    (d.progresso || []).forEach(function (r) {
+      contagem[r.user_id] = contagem[r.user_id] || {};
+      var total = (r.quiz_total || 0) + (r.practice_total || 0);
+      var feito = (r.quiz_correct || 0) + (r.practice_done || 0);
+      contagem[r.user_id][r.panel_key] = total ? feito / total : 0;
+    });
+    var quizOk = {};
+    (d.quizzes || []).forEach(function (r) {
+      if (r.chosen_opt === null || r.chosen_opt === undefined) { return; }
+      quizOk[r.user_id] = quizOk[r.user_id] || { total: 0, certas: 0 };
+      quizOk[r.user_id].total++;
+      if (r.is_correct) { quizOk[r.user_id].certas++; }
+    });
+    var notasPor = {};
+    (d.notas || []).filter(function (n) { return n.content && n.content.trim(); }).forEach(function (n) {
+      (notasPor[n.user_id] = notasPor[n.user_id] || []).push(n);
+    });
+    return { contagem: contagem, quizOk: quizOk, notasPor: notasPor };
+  }
+
+  function renderInstructorTab() {
+    if (!instrState.dados) { return; }
+    var d = instrState.dados;
+    var tot = instrTotais();
+    var aba = instrState.aba;
+    var h = "";
+    var alunos = d.alunos || [];
+    if (aba === "alunos") {
+      h = '<div style="overflow:auto"><table class="instr-table"><thead><tr><th>Nome / e-mail</th><th>Papel</th><th>Entrou</th><th>Tarefas</th><th>Quiz (certas/total)</th><th>Notas</th></tr></thead><tbody>';
+      alunos.sort(function (a, b) { return String(a.email).localeCompare(String(b.email)); });
+      alunos.forEach(function (a) {
+        var c = tot.contagem[a.id] || {};
+        var checks = Object.keys(c).length;
+        var q = tot.quizOk[a.id] || { total: 0, certas: 0 };
+        var n = (tot.notasPor[a.id] || []).length;
+        h += '<tr><td><b>' + escapeHtml(a.full_name || a.email) + '</b><br><small class="instr-tag">' + escapeHtml(a.email || "") + '</small></td>' +
+             '<td>' + (a.role === "instructor" ? '<span class="instr-tag instr">instrutor</span>' : '<span class="instr-tag">aluno</span>') + '</td>' +
+             '<td>' + (a.created_at ? new Date(a.created_at).toLocaleDateString("pt-BR") : "—") + '</td>' +
+             '<td>' + checks + '</td>' +
+             '<td>' + q.certas + '/' + q.total + '</td>' +
+             '<td>' + n + '</td></tr>';
+      });
+      if (!alunos.length) { h += '<tr><td colspan="6" style="text-align:center;color:var(--text-3)">Nenhum aluno encontrado.</td></tr>'; }
+      h += '</tbody></table></div>';
+    } else if (aba === "progresso") {
+      // Barra média por aula
+      h = '<p class="lead" style="margin:0 0 14px;color:var(--text-2)">Participação nos painéis (média de progresso)</p>';
+      PANELS.forEach(function (key) {
+        var vals = [];
+        alunos.forEach(function (a) {
+          var c = tot.contagem[a.id];
+          if (c && c[key] !== undefined) { vals.push(c[key]); }
+        });
+        var media = vals.length ? vals.reduce(function (s, v) { return s + v; }, 0) / vals.length : 0;
+        var pct = Math.round(media * 100);
+        h += '<div class="instr-block"><div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px"><h4>' + escapeHtml(META[key].title) + '</h4><small>' + vals.length + ' aluno(s) · média ' + pct + '%</small></div>' +
+             '<div class="instr-meter" style="margin-top:8px"><span class="bar"><i style="width:' + pct + '%"></i></span><small>' + pct + '%</small></div></div>';
+      });
+      // Mapa por aluno
+      h += '<table class="instr-table" style="margin-top:14px"><thead><tr><th>Aluno</th>' + PANELS.map(function (k) { return '<th style="text-align:center;font-size:11px">' + escapeHtml(META[k].eyebrow.split("·")[0].trim()) + '</th>'; }).join("") + '</tr></thead><tbody>';
+      alunos.sort(function (a, b) { return String(a.email).localeCompare(String(b.email)); });
+      alunos.forEach(function (a) {
+        var c = tot.contagem[a.id] || {};
+        h += '<tr><td><b>' + escapeHtml(a.full_name || a.email) + '</b></td>' + PANELS.map(function (key) { return '<td style="text-align:center">' + (c[key] !== undefined ? Math.round((c[key] || 0) * 100) : "·") + '%</td>'; }).join("") + '</tr>';
+      });
+      if (!alunos.length) { h += '<tr><td colspan="' + (PANELS.length + 1) + '" style="text-align:center;color:var(--text-3)">Nenhum aluno encontrado.</td></tr>'; }
+      h += '</tbody></table>';
+    } else {
+      h = '<p class="lead" style="margin:0 0 14px;color:var(--text-2)">Anotações e respostas de quiz, aluno a aluno</p>';
+      alunos.sort(function (a, b) { return String(a.email).localeCompare(String(b.email)); });
+      var temAlgo = false;
+      alunos.forEach(function (a) {
+        var notas = tot.notasPor[a.id] || [];
+        var respostas = (d.quizzes || []).filter(function (r) { return r.user_id === a.id && r.chosen_opt !== null && r.chosen_opt !== undefined; });
+        if (!notas.length && !respostas.length) { return; }
+        temAlgo = true;
+        h += '<div class="instr-block"><h4>' + escapeHtml(a.full_name || a.email) + '</h4><small>' + escapeHtml(a.email || "") + ' · ' + respostas.length + ' respostas de quiz ('
+          + respostas.filter(function (r) { return r.is_correct; }).length + ' certas)</small>';
+        if (notas.length) {
+          h += '<div class="instr-note">' + notas.map(function (n) {
+            return '<small class="instr-tag">' + escapeHtml((META[n.panel_key] ? META[n.panel_key].eyebrow : String(n.panel_key)).replace(/\u00B7.*/, "").trim()) + '</small> ' + escapeHtml(n.content);
+          }).join('</div><div class="instr-note">') + '</div>';
+        }
+        if (respostas.length) {
+          h += '<div class="instr-note" style="margin-top:8px">' + respostas.map(function (r, i) {
+            return '<b>Q' + (i + 1) + ' · ' + escapeHtml(String(r.panel_key).replace(/-/g, " ")) + '</b>' +
+              '<br>' + (r.is_correct ? '<span class="instr-tag instr">certa</span>' : '<span class="instr-tag">errada</span>') +
+              ' · opção ' + (r.chosen_opt + 1) +
+              ' <small style="color:var(--text-3)">' + (r.answered_at ? new Date(r.answered_at).toLocaleString("pt-BR") : "") + '</small>';
+          }).join('<br><br>') + '</div>';
+        }
+        h += '</div>';
+      });
+      if (!temAlgo) { h = '<p style="text-align:center;color:var(--text-3)">Nenhuma resposta ou anotação registrada ainda.</p>'; }
+    }
+    el.instrContent.innerHTML = h;
   }
 
   function syncAccountButton() {
@@ -2583,6 +2765,7 @@ mark{border-radius:4px;padding:0 2px;background:rgba(93,141,255,.3);color:#fff}
     restoreQuizzes();
     bind();
     bindAuth();
+    bindInstrTabs();
     bindMedia();
     var hash = (window.location.hash || "").replace("#", "");
     var start = PANELS.indexOf(hash) !== -1 ? hash : cloud.tab;

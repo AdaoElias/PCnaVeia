@@ -396,6 +396,43 @@
     return !!( _providers.dados && _providers.dados[provider]);
   }
 
+  // ===== INSTRUTOR =====
+  // Painel do instrutor: só funciona se esta conta tiver role='instructor'
+  // (as políticas RLS de supabase-instructor.sql negam para alunos).
+  async function getMyProfile() {
+    assertAuth();
+    const { data, error } = await supabase
+      .from("profiles")
+      .select("id, email, full_name, role")
+      .eq("id", uid())
+      .maybeSingle();
+    if (error) throw error;
+    return data;
+  }
+
+  // Busca tudo o que o painel precisa. RLS garante que um aluno receba
+  // vazio (ou erro 403) — nunca os dados dos colegas.
+  async function getInstructorOverview() {
+    assertAuth();
+    const [profiles, progress, quizzes, checks, notes] = await Promise.all([
+      supabase.from("profiles").select("id, email, full_name, role, created_at"),
+      supabase.from("panel_progress").select("*"),
+      supabase.from("quiz_answers").select("*"),
+      supabase.from("checklist_items").select("*"),
+      supabase.from("user_notes").select("*"),
+    ]);
+    for (const r of [profiles, progress, quizzes, checks, notes]) {
+      if (r.error) throw r.error;
+    }
+    return {
+      alunos: profiles.data,
+      progresso: progress.data,
+      quizzes: quizzes.data,
+      checklists: checks.data,
+      notas: notes.data,
+    };
+  }
+
   // ===== EXPORTA =====
   window.PCNaveiaSupabase = {
     init: initSupabase,
@@ -414,6 +451,8 @@
     saveUIState, loadUIState,
     saveCertificate, loadCertificates,
     syncPendingWrites, loadAllFromCloud,
+    // Instrutor
+    getMyProfile, getInstructorOverview,
     // Utils
     isOnline: () => isOnline,
   };
