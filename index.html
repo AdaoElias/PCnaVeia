@@ -2463,8 +2463,16 @@ mark{border-radius:4px;padding:0 2px;background:rgba(93,141,255,.3);color:#fff}
       '<div style="margin-top:10px"><button class="btn secondary" type="button" data-act="logout" style="width:100%"><svg class="icon"><use href="#i-out"></use></svg> Sair da conta</button></div>' +
       '<div class="sync-flag"><span class="status-dot"></span><span>Progresso sincronizado com o banco do curso.</span></div>';
     DB.getMyProfile().then(function (prof) {
-      if (!prof || prof.role !== "instructor") return;
+      if (!prof || prof.role !== "instructor") {
+        if (prof && prof.full_name) {
+          var nm = el.authContent.querySelector(".user-row b");
+          if (nm) { nm.textContent = prof.full_name; }
+        }
+        return;
+      }
       var slot = el.authContent.querySelector("#authInstrSlot");
+      var nm = el.authContent.querySelector(".user-row b");
+      if (nm) { nm.textContent = (prof.full_name || (user.user_metadata && user.user_metadata.full_name) || "Instrutor") + ' <span class="instr-tag instr" style="vertical-align:middle;margin-left:6px">instrutor</span>'; }
       var btn = document.createElement("button");
       btn.type = "button";
       btn.className = "btn primary";
