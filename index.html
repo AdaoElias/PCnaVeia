@@ -2296,6 +2296,29 @@ mark{border-radius:4px;padding:0 2px;background:rgba(93,141,255,.3);color:#fff}
         });
       });
     });
+    // Só mostra os botões de provedor que estão de fato habilitados no
+    // Supabase. Se a consulta falhar (null), mantém os botões atuais — a
+    // UI não some, e o clique ainda mostra a mensagem de erro.
+    if (DB && DB.providerAtivo) {
+      Array.prototype.forEach.call(el.gateContent.querySelectorAll("[data-oauth]"), function (btnOAuth) {
+        DB.providerAtivo(btnOAuth.getAttribute("data-oauth")).then(function (on) {
+          if (on !== false || !btnOAuth.isConnected) {
+            return;
+          }
+          btnOAuth.remove();
+          var social = el.gateContent.querySelector(".auth-social");
+          if (!social) {
+            return;
+          }
+          var restantes = social.querySelectorAll("[data-oauth]").length;
+          if (restantes === 1) {
+            social.style.gridTemplateColumns = "1fr";
+          } else if (restantes === 0) {
+            social.remove();
+          }
+        });
+      });
+    }
     var form = el.gateContent.querySelector("form");
     if (!form) {
       return;

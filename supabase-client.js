@@ -367,12 +367,42 @@
     return data;
   }
 
+  // ===== PROVIDERS =====
+  // O endpoint /auth/v1/settings é público (não precisa de sessão e só
+  // informa o que está habilitado). Cacheia para não repetir o fetch.
+  const _providers = { chave: null, dados: null };
+  async function providersHabilitados() {
+    if (_providers.dados) return _providers.dados;
+    try {
+      const res = await fetch(`${SUPABASE_URL}/auth/v1/settings`, {
+        headers: { apikey: SUPABASE_PUBLISHABLE_KEY },
+      });
+      if (!res.ok) throw new Error(res.status);
+      _providers.dados = (await res.json()).external || {};
+      return _providers.dados;
+    } catch (e) {
+      console.warn("[Supabase] Não deu para ler providers:", e.message);
+      return null; // garoto-propaganda inofensivo: UI cai nos botões atuais
+    }
+  }
+  // Verificação com cache curto expirado em 10s (mais simples que forçar refetch)
+  let _provCacheT = 0;
+  async function providerAtivo(provider) {
+    const agora = Date.now();
+    if (!_providers.dados || agora - _provCacheT > 10000) {
+      _provCacheT = agora;
+      _providers.dados = await providersHabilitados();
+    }
+    return !!( _providers.dados && _providers.dados[provider]);
+  }
+
   // ===== EXPORTA =====
   window.PCNaveiaSupabase = {
     init: initSupabase,
     // Auth
     signUp, signIn, signInWithOAuth, signOut, resetPassword, resendConfirmation,
     updatePassword, updateProfile,
+    providerAtivo,
     getUser: () => currentUser,
     isAuthenticated: () => !!currentUser,
     onAuthChange: (fn) => window.addEventListener("pcnaveia:auth", e => fn(e.detail)),
