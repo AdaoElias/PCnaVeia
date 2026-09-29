@@ -1,10 +1,12 @@
 # Material interno do curso - NAO versionar
 *.docx
-memoria.md
+memoria*.md
+BackUp/
 
 # Versoes antigas do site (o vigente e index.html)
 index - v1.html
 index -v2.html
+index - aula 1 tecnica.html
 
 # Sistema
 Thumbs.db

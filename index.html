@@ -168,6 +168,11 @@ mark{border-radius:4px;padding:0 2px;background:rgba(93,141,255,.3);color:#fff}
   .foto img{display:block;width:100%;height:auto;filter:grayscale(.22) contrast(1.03) brightness(.97);transition:filter .35s var(--ease)}
   .foto:hover img{filter:grayscale(0) contrast(1.02) brightness(1)}
   .foto figcaption{padding:13px 16px;border-top:1px solid var(--line);color:var(--text-3);font-size:12.5px;line-height:1.55}
+  .foto.alta img{width:auto;max-width:100%;max-height:400px;margin:0 auto}
+  .step .foto{margin:15px 0 0}
+  .step .foto figcaption{padding:11px 14px}
+  .step .grid.two .foto{margin:0}
+  .grid .video{margin:0}
   .video{margin:0 0 22px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface);box-shadow:inset 0 1px rgba(255,255,255,.045)}
   .video-frame{position:relative;display:block;width:100%;aspect-ratio:16/9;margin:0;border:0;padding:0;background:radial-gradient(120% 130% at 50% 0,rgba(155,114,255,.24),rgba(93,141,255,.1) 46%,rgba(6,9,18,.62));cursor:pointer;overflow:hidden}
   .video-frame:before{position:absolute;inset:0;content:"";background:var(--grad);opacity:.13}
@@ -331,10 +336,21 @@ mark{border-radius:4px;padding:0 2px;background:rgba(93,141,255,.3);color:#fff}
     <div class="chapter-head"><span class="chapter-num">03</span><div><h2>Montagem sem mistério</h2><p>Uma sequência previsível reduz erros. Monte sobre uma mesa firme, mantenha as peças na embalagem e confirme a compatibilidade antes de começar.</p></div></div>
     <ol class="steps">
       <li class="step"><strong>Planeje a finalidade</strong><p>Defina uso, orçamento e compatibilidade entre CPU, socket, chipset, RAM, placa, fonte, gabinete, GPU e armazenamento.</p></li>
-      <li class="step"><strong>Prepare o gabinete</strong><p>Instale os espaçadores, a fonte e a placa I/O. Depois posicione a placa sem apertar contra os pontos de apoio.</p></li>
-      <li class="step"><strong>Encaixe a CPU</strong><p>Abra a trava, alinhe o triângulo ou a marca do soquete, baixe sem forçar e feche a trava. Não toque nos contatos.</p></li>
-      <li class="step"><strong>Instale o cooler</strong><p>Aplique a quantidade de pasta térmica indicada pelo fabricante, fixe com pressão uniforme e conecte <code>CPU_FAN</code>.</p></li>
-      <li class="step"><strong>Encaixe a RAM</strong><p>Respeite o entalhe e os canais recomendados no manual. Pressione até as travas dos dois lados fecharem.</p></li>
+      <li class="step"><strong>Prepare o gabinete</strong><p>Instale os espaçadores, a fonte e a placa I/O. Depois posicione a placa sem apertar contra os pontos de apoio.</p>
+        <figure class="foto alta"><img src="img/prepare-o-gabinete.png" width="239" height="444" loading="lazy" decoding="async" alt="Gabinete aberto visto de frente, com os espaçadores, a fonte já instalada e a placa-mãe apoiada sem parafuso"><figcaption>Os espaçadores sustentam a placa. Encaixe a fonte e a placa I/O antes de fixar a placa-mãe: depois não há espaço para manobrar.</figcaption></figure>
+      </li>
+      <li class="step"><strong>Encaixe a CPU</strong><p>Abra a trava, alinhe o triângulo ou a marca do soquete, baixe sem forçar e feche a trava. Não toque nos contatos.</p>
+        <figure class="foto"><img src="img/encaixe-a-cpu.png" width="712" height="475" loading="lazy" decoding="async" alt="Processador sendo baixado no soquete da placa-mãe com a trava ainda aberta e o triângulo de alinhamento visível no canto"><figcaption>Procure o triângulo no canto do processador e a marca no soquete. Os dois precisam ficar no mesmo canto: é esse detalhe que define a posição certa.</figcaption></figure>
+      </li>
+      <li class="step"><strong>Instale o cooler</strong><p>Aplique a quantidade de pasta térmica indicada pelo fabricante, fixe com pressão uniforme e conecte <code>CPU_FAN</code>.</p>
+        <div class="grid two" style="margin-top:15px">
+          <figure class="foto"><img src="img/pasta-termica-processador.png" width="713" height="454" loading="lazy" decoding="async" alt="Pasta térmica sendo espalhada em camada fina sobre a superfície de contato do processador"><figcaption>1. Pasta térmica: uma camada fina e uniforme, do tamanho da pastilha. Excesso não melhora nada e transborda.</figcaption></figure>
+          <figure class="foto"><img src="img/instale-o-cooler.png" width="551" height="405" loading="lazy" decoding="async" alt="Cooler sendo fixado sobre o processador com os parafusos pressionados em cruz"><figcaption>2. Cooler: aperte em cruz, sem força exagerada, até o suporte tocar a base. Depois conecte o cabo <code>CPU_FAN</code>.</figcaption></figure>
+        </div>
+      </li>
+      <li class="step"><strong>Encaixe a RAM</strong><p>Respeite o entalhe e os canais recomendados no manual. Pressione até as travas dos dois lados fecharem.</p>
+        <figure class="foto"><img src="img/instalar-memoria.jpg" width="600" height="400" loading="lazy" decoding="async" alt="Módulo de memória sendo pressionado no slot até as travas laterais fecharem"><figcaption>O entalhe do módulo só entra de um jeito. Pressione firme dos dois lados até ouvir as duas travas fecharem.</figcaption></figure>
+      </li>
       <li class="step"><strong>Instale o armazenamento</strong><p>No M.2, use o espaçador correto. Em SATA, diferencie o cabo de dados de sete pinos do cabo de energia.</p></li>
       <li class="step"><strong>Encaixe a GPU</strong><p>Use o slot PCIe correto, feche a trava, fixe a placa no gabinete e conecte apenas as fontes exigidas pelo modelo.</p></li>
       <li class="step"><strong>Conecte a alimentação principal</strong><p>Identifique o cabeçalho de 24 pinos e o EPS da CPU. Conectores parecidos podem ter diferenças internas.</p></li>
@@ -354,8 +370,46 @@ mark{border-radius:4px;padding:0 2px;background:rgba(93,141,255,.3);color:#fff}
       <article class="card info"><h3>Painel frontal</h3><p>Power, Reset, LED de energia, LED de atividade, USB e áudio. A posição varia conforme a placa.</p></article>
     </div>
 </section>
+  <section class="chapter" id="a1-videos" data-title="Vale a pena assistir">
+    <div class="chapter-head"><span class="chapter-num">05</span><div><h2>Vale a pena assistir</h2><p>Vídeos de apoio para os pontos que mais travam a primeira montagem. Nada é carregado do YouTube até você clicar.</p></div></div>
+    <div class="grid two">
+      <figure class="video">
+        <div class="video-title">Montagem passo a passo</div>
+        <button class="video-frame" type="button" data-video="Hs15gJiPW8Q" data-start="743" aria-label="Reproduzir: vídeo atualizado mostrando como montar um PC em 2026, a partir de 12 minutos e 23 segundos">
+          <span class="video-play" aria-hidden="true"></span>
+          <span class="video-hint">Carregado do YouTube somente ao clicar</span>
+        </button>
+        <figcaption class="video-cap">
+          <strong>Vídeo atualizado mostrando como montar um PC em 2026</strong>
+          <span>Referência usada para montar esta aula; a versão definitiva do instrutor substitui este link. O trecho começa em 12:23. <a href="https://www.youtube.com/watch?v=Hs15gJiPW8Q&amp;t=743s" target="_blank" rel="noopener noreferrer">Assistir no YouTube</a></span>
+        </figcaption>
+      </figure>
+      <figure class="video">
+        <div class="video-title">Pasta térmica</div>
+        <button class="video-frame" type="button" data-video="kPTCdMVJMAw" aria-label="Reproduzir: qual o jeito certo de aplicar a pasta térmica">
+          <span class="video-play" aria-hidden="true"></span>
+          <span class="video-hint">Carregado do YouTube somente ao clicar</span>
+        </button>
+        <figcaption class="video-cap">
+          <strong>Qual o jeito certo de aplicar a pasta térmica?</strong>
+          <span>Já adianto: não existe um jeito certo, existe o jeito mais eficiente. O vídeo mostra a diferença na prática. <a href="https://www.youtube.com/watch?v=kPTCdMVJMAw" target="_blank" rel="noopener noreferrer">Assistir no YouTube</a></span>
+        </figcaption>
+      </figure>
+      <figure class="video">
+        <div class="video-title">Painel frontal</div>
+        <button class="video-frame" type="button" data-video="hC8cz7SJhCc" aria-label="Reproduzir: como conectar o painel frontal">
+          <span class="video-play" aria-hidden="true"></span>
+          <span class="video-hint">Carregado do YouTube somente ao clicar</span>
+        </button>
+        <figcaption class="video-cap">
+          <strong>Como conectar o painel frontal?</strong>
+          <span>Até quem já tem mais experiência bate dúvida nessa hora. Confira o conector antes de forçar: a ordem dos pinos varia em cada placa. <a href="https://www.youtube.com/watch?v=hC8cz7SJhCc" target="_blank" rel="noopener noreferrer">Assistir no YouTube</a></span>
+        </figcaption>
+      </figure>
+    </div>
+</section>
   <section class="chapter" id="a1-pratica" data-title="Prática e checklist">
-    <div class="chapter-head"><span class="chapter-num">05</span><div><h2>Desafio de montagem</h2><p>Monte, energize e documente o primeiro sistema. O objetivo não é terminar rápido: é entender cada etapa.</p></div></div>
+    <div class="chapter-head"><span class="chapter-num">06</span><div><h2>Desafio de montagem</h2><p>Monte, energize e documente o primeiro sistema. O objetivo não é terminar rápido: é entender cada etapa.</p></div></div>
     <div class="card challenge"><span class="label">Desafio do encontro</span><h3>Da caixa ao primeiro POST</h3><p>Monte um PC funcional, registre as compatibilidades escolhidas e valide no firmware memória, armazenamento, ventoinhas e temperaturas. Sem abrir a fonte e sem forçar conexões.</p><button class="check check-inline" type="button" role="checkbox" aria-checked="false" data-check="a1-done"><span class="box"></span><span class="label">Marcar este desafio como concluído</span></button></div>
     <div class="quiz" data-quiz="a1" style="margin-top:18px">
   <div class="quiz-head"><div><strong>Quiz do Encontro 1</strong><p>Uma opção por pergunta. Depois de responder, a questão é bloqueada e o gabarito aparece.</p></div><div class="quiz-score"><strong class="qs-val">0</strong><span class="qs-of">/8</span></div></div>
@@ -2733,10 +2787,11 @@ mark{border-radius:4px;padding:0 2px;background:rgba(93,141,255,.3);color:#fff}
     Array.prototype.forEach.call(frames, function (frame) {
       frame.addEventListener("click", function () {
         var id = frame.getAttribute("data-video");
+        var start = parseInt(frame.getAttribute("data-start"), 10);
         var holder = document.createElement("div");
         var iframe = document.createElement("iframe");
         var rotulo = (frame.getAttribute("aria-label") || "Video").replace(/^Reproduzir:\s*/, "");
-        iframe.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
+        iframe.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0" + (start > 0 ? "&start=" + start : "");
         iframe.title = rotulo;
         iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
         iframe.setAttribute("allowfullscreen", "");
