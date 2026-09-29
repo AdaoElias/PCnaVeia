@@ -162,7 +162,7 @@ mark{border-radius:4px;padding:0 2px;background:rgba(93,141,255,.3);color:#fff}
 .portrait:after{position:absolute;inset:0;pointer-events:none;content:"";background:linear-gradient(to top,rgba(6,9,18,.6),transparent 42%)}
 .portrait-card:hover .portrait img{transform:scale(1.05);filter:grayscale(0) contrast(1.02) brightness(1)}
 .toast{position:fixed;right:clamp(14px,3vw,30px);bottom:clamp(14px,3vw,30px);z-index:300;display:flex;align-items:center;gap:11px;border:1px solid var(--line-2);border-radius:15px;padding:13px 17px;background:rgba(11,15,27,.95);box-shadow:0 26px 70px rgba(0,0,0,.5);backdrop-filter:blur(16px);color:var(--text);font-size:14px;opacity:0;pointer-events:none;transform:translateY(14px);transition:.2s var(--ease)}.toast.show{opacity:1;transform:none}
-@media print{body{background:#fff;color:#111}.ambient,.grain,.reading,.topbar,.rail,.hero-visual,.footer,.challenge,.notes,.copy,.index-btn,.toast{display:none!important}.shell{width:100%;padding:0}.hero{display:block;min-height:0;margin:0 0 20px}.hero:before,.panel-intro,.card,.diagnostic,.checklist,.callout,.command,.compare,.flow-node{border:1px solid #bbb;background:#fff;box-shadow:none;backdrop-filter:none}.hero-copy{padding:20px 0}.hero h1,.panel-intro h2,.chapter h2,.card h3,.diagnostic h3,.compare h3,.flow-node h3{color:#111}.hero-lead,.panel-intro p,.chapter-head p,.card p,.diagnostic p,.compare p,.flow-node p,.callout p,.list li{color:#333}.primary,.secondary{display:none}.workspace{display:block;margin:0}.panel{animation:none}.chapter{margin-top:28px}.check{color:#222}.portrait img{filter:grayscale(.15) contrast(1) brightness(.97)}.command pre{color:#111;white-space:pre-wrap}.panel[hidden]{display:none!important}details{break-inside:avoid}@page{margin:14mm}}
+@media print{body{background:#fff;color:#111}.ambient,.grain,.reading,.topbar,.rail,.hero-visual,.footer,.challenge,.notes,.copy,.index-btn,.toast{display:none!important}.shell{width:100%;padding:0}.hero{display:block;min-height:0;margin:0 0 20px}.hero:before,.panel-intro,.card,.diagnostic,.checklist,.callout,.command,.compare,.flow-node,.tool{border:1px solid #bbb;background:#fff;box-shadow:none;backdrop-filter:none}.hero-copy{padding:20px 0}.hero h1,.panel-intro h2,.chapter h2,.card h3,.diagnostic h3,.compare h3,.flow-node h3{color:#111}.hero-lead,.panel-intro p,.chapter-head p,.card p,.diagnostic p,.compare p,.flow-node p,.callout p,.list li{color:#333}.primary,.secondary{display:none}.workspace{display:block;margin:0}.panel{animation:none}.chapter{margin-top:28px}.check{color:#222}.portrait img{filter:grayscale(.15) contrast(1) brightness(.97)}.command pre{color:#111;white-space:pre-wrap}.tool-body strong,.tool-go{color:#111}.tool-url{color:#333}.tool-tag{border-color:#bbb;color:#333}.panel[hidden]{display:none!important}details{break-inside:avoid}@page{margin:14mm}}
 
   .foto{margin:0 0 22px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface);box-shadow:inset 0 1px rgba(255,255,255,.045)}
   .foto img{display:block;width:100%;height:auto;filter:grayscale(.22) contrast(1.03) brightness(.97);transition:filter .35s var(--ease)}
@@ -171,6 +171,17 @@ mark{border-radius:4px;padding:0 2px;background:rgba(93,141,255,.3);color:#fff}
   .step .foto{margin:15px 0 0}
   .step .foto figcaption{padding:11px 14px}
   .step .grid.two .foto{margin:0}
+  .tool{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:14px 0 0;padding:11px 13px;border:1px solid rgba(81,213,255,.2);border-radius:14px;background:rgba(81,213,255,.05)}
+  .tool-ic{display:grid;width:34px;height:34px;flex:0 0 34px;place-items:center;border-radius:10px;background:rgba(81,213,255,.1);color:var(--cyan)}
+  .tool-body{display:grid;min-width:0;flex:1 1 170px;gap:2px}
+  .tool-body strong{margin:0;font-size:13.5px;letter-spacing:-.01em}
+  .tool-url{overflow:hidden;color:var(--cyan);font:11px/1.4 var(--mono);text-overflow:ellipsis;white-space:nowrap}
+  .tool-go{flex:0 0 auto;margin-left:auto;padding:8px 14px;border:1px solid rgba(81,213,255,.32);border-radius:10px;background:rgba(81,213,255,.1);color:var(--cyan);font-size:12.5px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .18s var(--ease)}
+  .tool-go:hover{background:rgba(81,213,255,.2);color:#dff7ff}
+  .tool.builtin{border-color:rgba(85,226,165,.2);background:rgba(85,226,165,.05)}
+  .tool.builtin .tool-ic{background:rgba(85,226,165,.1);color:var(--green)}
+  .tool.builtin .tool-url{color:var(--green)}
+  .tool-tag{flex:0 0 auto;margin-left:auto;padding:6px 11px;border:1px solid rgba(85,226,165,.3);border-radius:999px;color:var(--green);font:10px var(--mono);letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
   .grid.one{grid-template-columns:1fr}
   .grid .video{margin:0}
   .video{margin:0 0 22px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface);box-shadow:inset 0 1px rgba(255,255,255,.045)}
@@ -1079,12 +1090,47 @@ mark{border-radius:4px;padding:0 2px;background:rgba(93,141,255,.3);color:#fff}
   <section class="chapter" id="e3-passos" data-title="Passo a passo">
     <div class="chapter-head"><span class="chapter-num">04</span><div><h2>Os quatro procedimentos</h2><p>Siga um método por vez. Misturar passos de métodos diferentes é a causa mais comum de pendrive que não inicializa.</p></div></div>
     <div class="steps">
-      <li class="step"><strong>Ferramenta de Criação de Mídia</strong><p>Baixe a ferramenta no site da Microsoft, execute e aceite os termos. Escolha "Criar mídia de instalação (unidade flash USB, DVD ou arquivo ISO) para outro computador". Desmarque "Usar as opções recomendadas" se quiser escolher idioma, edição e arquitetura à mão. Selecione "Unidade flash USB", escolha o pendrive e aguarde o download e a gravação. Ao final, clique em "Concluir".</p></li>
-      <li class="step"><strong>Rufus</strong><p>Baixe a ISO do Windows e abra o Rufus. Em "Dispositivo", escolha o pendrive. Em "Seleção de inicialização", clique em "Selecionar" e aponte a ISO. Em "Esquema de partição", escolha GPT com "Sistema de destino" UEFI (não CSM), ou MBR com "BIOS ou UEFI-CSM". Deixe FAT32 e clique em "Iniciar". Confirme o aviso de apagar os dados e acompanhe a barra inferior.</p></li>
-      <li class="step"><strong>Ventoy</strong><p>Baixe a versão do Ventoy para o seu sistema, descompacte e execute o Ventoy2Disk.exe. Escolha o pendrive, selecione o estilo de partição e clique em "Instalar". Após isso o pendrive volta a ser uma unidade comum: copie os arquivos .iso inteiros para a raiz, sem extrair. Ao iniciar por ele, o Ventoy mostra um menu com todas as ISOs copiadas.</p></li>
-      <li class="step"><strong>Diskpart</strong><p>Abra o Prompt de Comando como administrador. Digite diskpart e depois list disk. Confira o tamanho e anote o número do pendrive. Digite select disk X, onde X é esse número, e confira o disco selecionado na mensagem de confirmação. Depois: clean, create partition primary, select partition 1, format fs=ntfs quick e active. Saia com exit. Descompacte a ISO e copie todo o conteúdo da raiz dela para a raiz do pendrive.</p></li>
+      <li class="step"><strong>Ferramenta de Criação de Mídia</strong>
+        <div class="tool">
+          <span class="tool-ic"><svg class="icon"><use href="#i-out"></use></svg></span>
+          <div class="tool-body"><strong>Download oficial</strong><span class="tool-url">microsoft.com</span></div>
+          <a class="tool-go" href="https://www.microsoft.com/pt-br/software-download/windows10" target="_blank" rel="noopener noreferrer">Abrir</a>
+        </div>
+        <p>Baixe a ferramenta no site da Microsoft, execute e aceite os termos. Escolha "Criar mídia de instalação (unidade flash USB, DVD ou arquivo ISO) para outro computador". Desmarque "Usar as opções recomendadas" se quiser escolher idioma, edição e arquitetura à mão. Selecione "Unidade flash USB", escolha o pendrive e aguarde o download e a gravação. Ao final, clique em "Concluir".</p></li>
+      <li class="step"><strong>Rufus</strong>
+        <div class="tool">
+          <span class="tool-ic"><svg class="icon"><use href="#i-out"></use></svg></span>
+          <div class="tool-body"><strong>Download oficial</strong><span class="tool-url">rufus.ie</span></div>
+          <a class="tool-go" href="https://rufus.ie/pt_BR/" target="_blank" rel="noopener noreferrer">Abrir</a>
+        </div>
+        <p>Baixe a ISO do Windows e abra o Rufus. Em "Dispositivo", escolha o pendrive. Em "Seleção de inicialização", clique em "Selecionar" e aponte a ISO. Em "Esquema de partição", escolha GPT com "Sistema de destino" UEFI (não CSM), ou MBR com "BIOS ou UEFI-CSM". Deixe FAT32 e clique em "Iniciar". Confirme o aviso de apagar os dados e acompanhe a barra inferior.</p></li>
+      <li class="step"><strong>Ventoy</strong>
+        <div class="tool">
+          <span class="tool-ic"><svg class="icon"><use href="#i-out"></use></svg></span>
+          <div class="tool-body"><strong>Download oficial</strong><span class="tool-url">ventoy.net</span></div>
+          <a class="tool-go" href="https://www.ventoy.net/en/index.html" target="_blank" rel="noopener noreferrer">Abrir</a>
+        </div>
+        <p>Baixe a versão do Ventoy para o seu sistema, descompacte e execute o Ventoy2Disk.exe. Escolha o pendrive, selecione o estilo de partição e clique em "Instalar". Após isso o pendrive volta a ser uma unidade comum: copie os arquivos .iso inteiros para a raiz, sem extrair. Ao iniciar por ele, o Ventoy mostra um menu com todas as ISOs copiadas.</p></li>
+      <li class="step"><strong>Diskpart</strong>
+        <div class="tool builtin">
+          <span class="tool-ic"><svg class="icon"><use href="#i-terminal"></use></svg></span>
+          <div class="tool-body"><strong>Já vem no Windows</strong><span class="tool-url">não existe download para o DiskPart</span></div>
+          <span class="tool-tag">embutido</span>
+        </div>
+        <p>Abra o Prompt de Comando pelo menu Iniciar: digite <code>cmd</code>, clique com o botão direito em cima de Prompt de Comando e escolha Executar como administrador. Digite <code>diskpart</code> e o prompt muda para <code>DISKPART&gt;</code> — é essa troca que confirma que você já está dentro da ferramenta, e a partir daí os comandos de unidade passam a valer. Depois rode <code>list disk</code>, confira o tamanho e anote o número do pendrive. Digite <code>select disk X</code>, onde X é esse número, e confira o disco selecionado na mensagem de confirmação. Depois: <code>clean</code>, <code>create partition primary</code>, <code>select partition 1</code>, <code>format fs=ntfs quick</code> e <code>active</code>. Saia com <code>exit</code>. Descompacte a ISO e copie todo o conteúdo da raiz dela para a raiz do pendrive.</p>
+        <div class="command">
+          <div class="command-head"><span>Entrando na ferramenta</span></div>
+          <pre>C:\Windows\System32&gt;diskpart
+
+Microsoft DiskPart
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+
+DISKPART&gt;</pre>
+        </div>
+      </li>
       <li class="step"><strong>Iniciar pelo pendrive</strong><p>Conecte o pendrive, reinicie e abra o menu de boot. As teclas variam conforme o fabricante: F2, F10, F12, F11 ou ESC. Em notebooks Lenovo, F12 abre a lista de dispositivos. Se a tecla não responder, use a rota confiável do Windows: Shift + Reiniciar, depois "Usar um dispositivo". Escolha o pendrive e siga a instalação na tela.</p></li>
     </div>
+    <div class="callout note"><span class="ci"><svg class="icon"><use href="#i-shield"></use></svg></span><div><strong>Confira o endereço antes de clicar</strong><p>Rufus e Ventoy têm cópias falsas que se passam pelo site original e instalam programas que não pediu. O domínio é a única prova: a barra tem de terminar em <code>rufus.ie</code> ou <code>ventoy.net</code>. Se aparecer anúncio no topo, download automático, "instalador rápido" ou qualquer outro domínio, feche a aba. E DiskPart não entra nessa lista porque já está no seu Windows: não existe download para ele, e quem oferece um "DiskPart.exe" está entregando malware.</p></div></div>
     <div class="callout alert"><span class="ci"><svg class="icon"><use href="#i-alert"></use></svg></span><div><strong>O clean do Diskpart não tem confirmação</strong><p>Ele apaga a tabela de partição do disco inteiro e não pergunta nada. Confira duas vezes o número em list disk e confirme que o pendrive é o único disco USB da lista. Nunca rode clean no disco onde está o sistema. Se precisar de uma segunda chance, tudo pode ser recoverido por ferramenta specialize, mas isso não ç ao alcance deste material.</p></div></div>
   </section>
   <section class="chapter" id="e3-pratica" data-title="Revisão">
