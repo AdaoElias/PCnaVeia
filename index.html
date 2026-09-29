@@ -183,6 +183,8 @@ mark{border-radius:4px;padding:0 2px;background:rgba(93,141,255,.3);color:#fff}
   .tool.builtin .tool-url{color:var(--green)}
   .tool-tag{flex:0 0 auto;margin-left:auto;padding:6px 11px;border:1px solid rgba(85,226,165,.3);border-radius:999px;color:var(--green);font:10px var(--mono);letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
   .grid.one{grid-template-columns:1fr}
+  .chapter-intro{max-width:760px;margin:16px 0 0;color:var(--text-2);font-size:15.5px;line-height:1.65}
+  .chapter-intro code{font-size:13px}
   .grid .video{margin:0}
   .video{margin:0 0 22px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface);box-shadow:inset 0 1px rgba(255,255,255,.045)}
   .video-frame{position:relative;display:block;width:100%;aspect-ratio:16/9;margin:0;border:0;padding:0;background:radial-gradient(120% 130% at 50% 0,rgba(155,114,255,.24),rgba(93,141,255,.1) 46%,rgba(6,9,18,.62));cursor:pointer;overflow:hidden}
@@ -1133,8 +1135,64 @@ DISKPART&gt;</pre>
     <div class="callout note"><span class="ci"><svg class="icon"><use href="#i-shield"></use></svg></span><div><strong>Confira o endereço antes de clicar</strong><p>Rufus e Ventoy têm cópias falsas que se passam pelo site original e instalam programas que não pediu. O domínio é a única prova: a barra tem de terminar em <code>rufus.ie</code> ou <code>ventoy.net</code>. Se aparecer anúncio no topo, download automático, "instalador rápido" ou qualquer outro domínio, feche a aba. E DiskPart não entra nessa lista porque já está no seu Windows: não existe download para ele, e quem oferece um "DiskPart.exe" está entregando malware.</p></div></div>
     <div class="callout alert"><span class="ci"><svg class="icon"><use href="#i-alert"></use></svg></span><div><strong>O clean do Diskpart não tem confirmação</strong><p>Ele apaga a tabela de partição do disco inteiro e não pergunta nada. Confira duas vezes o número em list disk e confirme que o pendrive é o único disco USB da lista. Nunca rode clean no disco onde está o sistema. Se precisar de uma segunda chance, tudo pode ser recoverido por ferramenta specialize, mas isso não ç ao alcance deste material.</p></div></div>
   </section>
+  <section class="chapter" id="e3-material" data-title="Material para entrar">
+    <div class="chapter-head"><span class="chapter-num">05</span><div><h2>Material para entrar</h2><p>Algumas ferramentas para facilitar a nossa vida.</p></div></div>
+    <p class="chapter-intro">Pendrive bootável é o seu plano de resgate. É um Windows inteiro que roda de dentro da memória USB, sem instalar nada no computador, e é ele que atende a máquina que não liga: senha esquecida, arquivo perdido, disco com problema, tela azul. Você prepara uma vez e usa em qualquer equipamento quebrado.</p>
+    <div class="grid one">
+      <figure class="video">
+        <div class="video-title">Sergei Strelec</div>
+        <button class="video-frame" type="button" data-video="SeQKI3ziHSQ" data-start="258" aria-label="Reproduzir: Sergei Strelec, o pendrive que resolve vários problemas, a partir de 4 minutos e 18 segundos">
+          <span class="video-play" aria-hidden="true"></span>
+          <span class="video-hint">Carregado do YouTube somente ao clicar</span>
+        </button>
+        <figcaption class="video-cap">
+          <strong>O pendrive que resolve vários problemas</strong>
+          <span>Literalmente um canivete suíço: um Windows portátil com backup, recuperação de arquivos, gerenciador de partições, antivírus e teste de memória, tudo em uma única ISO. O vídeo abre no capítulo "Baixando o Sergei Strelec", aos 4:18, que é onde começa a parte útil. <a href="https://www.youtube.com/watch?v=SeQKI3ziHSQ&amp;t=258s" target="_blank" rel="noopener noreferrer">Assistir no YouTube</a></span>
+        </figcaption>
+        <div class="tool">
+          <span class="tool-ic"><svg class="icon"><use href="#i-out"></use></svg></span>
+          <div class="tool-body"><strong>Download oficial</strong><span class="tool-url">sergeistrelect.name</span></div>
+          <a class="tool-go" href="https://sergeistrelec.name/" target="_blank" rel="noopener noreferrer">Abrir</a>
+        </div>
+      </figure>
+      <figure class="video">
+        <div class="video-title">NHV BOOT</div>
+        <button class="video-frame" type="button" data-video="USvzhT9kgRc" aria-label="Reproduzir: NHV BOOT, mais uma ferramenta monstruosa">
+          <span class="video-play" aria-hidden="true"></span>
+          <span class="video-hint">Carregado do YouTube somente ao clicar</span>
+        </button>
+        <figcaption class="video-cap">
+          <strong>Mais uma ferramenta monstruosa</strong>
+          <span>WinPE de resgate com interface moderna e suporte a hardware recente, com diagnóstico de memória, disco e placas, além de reparo de boot e recuperação de senha. A versão gratuita já resolve o básico; a paga, chamada Extreme, acrescenta recursos. O vídeo faz a análise aos 20 segundos e mostra a criação do pendrive aos 9:30. <a href="https://www.youtube.com/watch?v=USvzhT9kgRc" target="_blank" rel="noopener noreferrer">Assistir no YouTube</a></span>
+        </figcaption>
+        <div class="tool">
+          <span class="tool-ic"><svg class="icon"><use href="#i-out"></use></svg></span>
+          <div class="tool-body"><strong>Download oficial</strong><span class="tool-url">nhvboot.com</span></div>
+          <a class="tool-go" href="https://nhvboot.com/" target="_blank" rel="noopener noreferrer">Abrir</a>
+        </div>
+      </figure>
+      <figure class="video">
+        <div class="video-title">MediCat USB</div>
+        <button class="video-frame" type="button" data-video="OYMnQ3R-IV0" aria-label="Reproduzir: MediCat USB, tudo em um, o que eu tenho usado ultimamente">
+          <span class="video-play" aria-hidden="true"></span>
+          <span class="video-hint">Carregado do YouTube somente ao clicar</span>
+        </button>
+        <figcaption class="video-cap">
+          <strong>Esse é o que eu tenho usado ultimamente: tudo em um</strong>
+          <span>Gratuito, aberto e multilíngue. Traz diagnóstico de hardware, discos e partições, teste de memória, backup, antivírus, recuperação de dados e instalação de drivers, e pode ser usado direto do Windows ou inicializando pelo pendrive. O vídeo está em espanhol, mas a ferramenta tem interface em português. <a href="https://www.youtube.com/watch?v=OYMnQ3R-IV0" target="_blank" rel="noopener noreferrer">Assistir no YouTube</a></span>
+        </figcaption>
+        <div class="tool">
+          <span class="tool-ic"><svg class="icon"><use href="#i-out"></use></svg></span>
+          <div class="tool-body"><strong>Download oficial</strong><span class="tool-url">medicatusb.com</span></div>
+          <a class="tool-go" href="https://medicatusb.com/" target="_blank" rel="noopener noreferrer">Abrir</a>
+        </div>
+      </figure>
+    </div>
+    <div class="callout note"><span class="ci"><svg class="icon"><use href="#i-shield"></use></svg></span><div><strong>Confira o endereço antes de baixar</strong><p>Essas três ferramentas são alvos de cópia com programa a mais dentro. O domínio tem de ser <code>sergeistrelect.name</code>, <code>nhvboot.com</code> ou <code>medicatusb.com</code>. O endereço <code>sergeistrelect.com</code> não existe mais, e o <code>.ru</code> está parado em 2022: qualquer um dos dois já é motivo para fechar a aba.</p></div></div>
+    <div class="callout alert"><span class="ci"><svg class="icon"><use href="#i-alert"></use></svg></span><div><strong>WinPE não é espelho: ele apaga de verdade</strong><p>Backup, restauração e gerenciador de partições funcionam, e é por isso que também destroem dados sem perguntar. Confira a unidade selecionada duas vezes antes de rodar qualquer uma dessas ferramentas em um disco com arquivos. Nada disso substitui backup: o pendrive de resgate é justamente para quando o backup já falhou. E use cada ferramenta dentro dos termos da sua licença.</p></div></div>
+  </section>
   <section class="chapter" id="e3-pratica" data-title="Revisão">
-    <div class="chapter-head"><span class="chapter-num">05</span><div><h2>Antes de atender</h2><p>Verifique se o método escolhido serve ao caso antes de gravar qualquer coisa.</p></div></div>
+    <div class="chapter-head"><span class="chapter-num">06</span><div><h2>Antes de atender</h2><p>Verifique se o método escolhido serve ao caso antes de gravar qualquer coisa.</p></div></div>
     <div class="checklist" data-checklist="e3">
       <div class="check-head"><strong>Checklist do pendrive de boot</strong><span class="check-count">0 / 8</span></div><div class="check-bar"><span></span></div><div class="check-items">
         <button class="check" type="button" role="checkbox" aria-checked="false" data-check="e3-w10"><span class="box"></span><span class="label">Sei que o suporte do Windows 10 terminou em 14/10/2025</span></button>
