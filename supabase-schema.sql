@@ -40,7 +40,8 @@ create table if not exists public.panel_progress (
   user_id       uuid not null references auth.users (id) on delete cascade,
   panel_key     text not null check (panel_key in (
                   'aula-1','extra-1','aula-2','extra-2',
-                  'aula-3','extra-3','aula-4','extra-4'
+                  'aula-3','extra-3','aula-4','extra-4',
+                  'brinde-1'
                 )),
   quiz_correct  int not null default 0,
   quiz_total    int not null default 0,
